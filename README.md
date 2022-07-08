@@ -1,6 +1,7 @@
 # OTA-Community-Edition
 
 > If you don't have kafka or mariadb running and just want to try ota-ce
+
 > Run using docker-compose:
 ### Running With Docker Compose
 1. Generate the required certificates using 
