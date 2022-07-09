@@ -31,7 +31,7 @@
 
 4. Run docker-compose
 ``` 
-docker-compose -f ota-ce.yaml up
+docker compose -f ota-ce.yaml up
 ```
 
 5. Test
