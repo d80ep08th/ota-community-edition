@@ -1,5 +1,15 @@
 # OTA-Community-Edition
 
+- The OTA Community Edition is open-source server software to allow over-the-air (OTA) updates of compatible clients
+
+> (see the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client).
+
+- It is comprised of a number of services which together make up the OTA system.
+
+- The source code for the servers is available on [Github](https://github.com/advancedtelematic) and is licensed under the MPL2.0
+
+- Docker container images of the latest build are available on [Docker Hub](https://hub.docker.com/u/advancedtelematic).
+---
 > If you don't have **kafka** or **mariadb** running and just want to try ota-ce
 
 > Run using **docker-compose**:
@@ -30,13 +40,13 @@
 |III|`docker tag $img uptane/ota-lith:latest`|~|
 
 4. Run docker-compose
-``` 
+```
 docker compose -f ota-ce.yaml up
 ```
 
 5. Test
 
-For example 
+For example
 ```
 curl director.ota.ce/health/version
 ```
@@ -46,7 +56,7 @@ curl director.ota.ce/health/version
  ```
  ./scripts/gen-device.sh
  ```
- > This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device. You can 
+ > This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device. You can
 
 7. Run **aktualizr** in that directory using:
 ```
@@ -55,4 +65,3 @@ aktualizr --run-mode=once --config=config.toml
   > You can now deploy updates to the devices
 ---
 ---
-
