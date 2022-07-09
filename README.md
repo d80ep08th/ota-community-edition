@@ -1,10 +1,10 @@
 # OTA-Community-Edition
 
-> If you don't have kafka or mariadb running and just want to try ota-ce
+> If you don't have **kafka** or **mariadb** running and just want to try ota-ce
 
-> Run using docker-compose:
+> Run using **docker-compose**:
 ### Running With Docker Compose
-1. Generate the required certificates using the script `gen-server-certs.sh`
+1. Generate the required certificates using the script **gen-server-certs.sh**
 ```
 ./scripts/gen-server-certs.sh
 ```
@@ -41,14 +41,14 @@ For example
 curl director.ota.ce/health/version
 ```
 
-6. You can now create device credentials and provision devices using the script `gen-device.sh`
+6. You can now create device credentials and provision devices using the script **gen-device.sh**
 
  ```
  ./scripts/gen-device.sh
  ```
- > This will create a new dir in `ota-ce-gen/devices/:uuid` where `uuid` is the id of the new device. You can 
+ > This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device. You can 
 
-7. Run `aktualizr` in that directory using:
+7. Run **aktualizr** in that directory using:
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
