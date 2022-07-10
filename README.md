@@ -33,8 +33,9 @@
 
 3. Build Docker Image or Pull from Docker
 
-|      Steps     |Pull from Docker            | Build Docker Image            |
+|     Options     |Pull from Docker            | Build Docker Image            |
 |----------------|-------------------------------|-----------------------------|
+|Number of Steps|3 steps|1 step only|
 |I|`export img=uptane/ota-lith:$(git rev-parse master)`|`sbt docker:publishLocal`|
 |II|`docker pull $img`|      ~     |
 |III|`docker tag $img uptane/ota-lith:latest`|~|
