@@ -2,7 +2,7 @@
 
 - The OTA Community Edition is open-source server software to allow over-the-air (OTA) updates of compatible clients
 
-> (see the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client).
+> See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 
 - It is comprised of a number of services which together make up the OTA system.
 
