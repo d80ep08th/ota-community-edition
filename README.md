@@ -15,6 +15,7 @@
 > Run using **docker-compose**:
 ### Running With Docker Compose
 1. Generate the required certificates using the script **gen-server-certs.sh**
+>This is required to provision the aktualizr
 ```
 ./scripts/gen-server-certs.sh
 ```
@@ -41,13 +42,24 @@
 |III|`docker tag $img uptane/ota-lith:latest`|~|
 
 4. Run docker-compose
+
+- First, make sure everything is clean
+```
+docker compose -f ota-ce.yaml rm
+docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
+
+```
+- Start OTA-CE
 ```
 docker compose -f ota-ce.yaml up
+```
+- Stop OTA-CE
+```
+docker compose -f ota-ce.yaml down
 ```
 
 5. Test
 
-For example
 ```
 curl director.ota.ce/health/version
 ```
