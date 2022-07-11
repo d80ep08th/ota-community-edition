@@ -2,13 +2,12 @@
 
 - The OTA Community Edition is open-source server software to allow over-the-air (OTA) updates of compatible clients
 
-> See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
-
 - It is comprised of a number of services which together make up the OTA system.
 
 - The source code for the servers is available on [Github](https://github.com/advancedtelematic) and is licensed under the MPL2.0
 
 - Docker container images of the latest build are available on [Docker Hub](https://hub.docker.com/u/advancedtelematic).
+> See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
 > If you don't have **kafka** or **mariadb** running and just want to try ota-ce
 
