@@ -10,14 +10,7 @@
 - [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
 ## Installing OTA-CE
-
-1. Run the script `gen-server-certs.sh` :
-> Generates the required certificates.
-> This is required to provision the aktualizr.
-```
-./scripts/gen-server-certs.sh
-```
-2. Add the following host names to `/etc/hosts` :
+1. Add the following host names to `/etc/hosts` :
 > open the file /etc/hosts using any editor of your choice with root access
 ```
 sudo gedit /etc/hosts
@@ -32,6 +25,13 @@ sudo gedit /etc/hosts
 0.0.0.0         campaigner.ota.ce
 0.0.0.0         app.ota.ce
 0.0.0.0         ota.ce
+```
+
+2. Run the script `gen-server-certs.sh` :
+> Generates the required certificates.
+> This is required to provision the aktualizr.
+```
+sudo ./scripts/gen-server-certs.sh
 ```
 
 3. Pull docker image (or build docker image) :
@@ -82,23 +82,22 @@ curl campaigner.ota.ce/health/version
 ```
 
 
-6. Run the script `get-credentials.sh` :
+6. Run the scripts `get-credentials.sh` and `gen-device.sh` (in that order):
 > Creates credentials.zip in `ota-ce-gen/` directory
  ```
- ./scripts/get-credentials.sh
+sudo ./scripts/get-credentials.sh
  ```
 
-7. Run the script `gen-device.sh` :
 > It provides a new device, by creating a new directory `ota-ce-gen/devices/:uuid` where **uuid** is the id of the new device.
 
  ```
- ./scripts/gen-device.sh
+sudo ./scripts/gen-device.sh
  ```
-8. Run **aktualizr** :
+7. Run **aktualizr** :
 - Go in the directory `ota-ce-gen/devices/:uuid`, there we run the following command to connect aktualizr.
-> The aktualizr client is intended to be installed on devices that wish to receive OTA updates from an Uptane-compatible OTA server,
+> The aktualizr client is intended to be installed on devices that wish to receive OTA updates from an Uptane-compatible OTA server
 ```
-aktualizr --run-mode=once --config=config.toml
+sudo aktualizr --run-mode=once --config=config.toml
 ```   
 
 ---
