@@ -18,7 +18,11 @@
 ./scripts/gen-server-certs.sh
 ```
 2. Add the following host names to `/etc/hosts` :
-
+> open the file /etc/hosts using any editor of your choice with root access
+```
+sudo gedit /etc/hosts
+```
+> paste the following on the last line  , save the file and close it
 ```
 0.0.0.0         reposerver.ota.ce
 0.0.0.0         keyserver.ota.ce
@@ -56,10 +60,27 @@ docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
 ```
 
 5. Test if the servers are up
-
+> Check if the services are running
 ```
 curl director.ota.ce/health/version
+curl keyserver.ota.ce/health/version
+curl reposerver.ota.ce/health/version
+curl treehub.ota.ce/health/version
+curl deviceregistry.ota.ce/health/version
+curl campaigner.ota.ce/health/version
 ```
+> If you get an output in the following syntax, then the service is up and running
+```
+{
+    "builtAtMillis": "1645552143860",
+    "name": "<service-name>",
+    "scalaVersion": "2.12.15",
+    "version": "3d60bb94256e58dfe0a42a9bec90ae58dea1d1ab",
+    "sbtVersion": "1.4.7",
+    "builtAtString": "2022-02-22 17:49:03.860+0000"
+}
+```
+
 
 6. Run the script `get-credentials.sh` :
 > Creates credentials.zip in `ota-ce-gen/` directory
