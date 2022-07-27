@@ -42,21 +42,21 @@
 
 4. Run docker-compose
 
-- First, make sure everything is clean
+
+> Start OTA-CE
+```
+docker compose -f ota-ce.yaml up
+```
+> Stop OTA-CE
+```
+docker compose -f ota-ce.yaml down
+```
+> Make sure everything is clean
 ```
 docker compose -f ota-ce.yaml rm
 docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
 
 ```
-- Start OTA-CE
-```
-docker compose -f ota-ce.yaml up
-```
-- Stop OTA-CE
-```
-docker compose -f ota-ce.yaml down
-```
-
 5. Test
 
 ```
@@ -77,6 +77,7 @@ curl director.ota.ce/health/version
  > This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device. You can
 
 8. Run **aktualizr** in that directory using:
+
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
