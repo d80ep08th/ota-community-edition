@@ -10,13 +10,15 @@
 
 - See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
+## Installing OTA-CE
+
 1. Run the script **gen-server-certs.sh**
 > Generates the required certificates.
 > This is required to provision the aktualizr.
 ```
 ./scripts/gen-server-certs.sh
 ```
-2. Update /etc/hosts with the following host names:
+2. Add the following host names to `/etc/hosts` :
 
 ```
 0.0.0.0         reposerver.ota.ce
@@ -29,7 +31,7 @@
 0.0.0.0         ota.ce
 ```
 
-3. Pull from docker (or build docker image)
+3. Pull docker image (or build docker image) :
 
 |     Options     |Pull from Docker            | Build Docker Image            |
 |----------------|-------------------------------|-----------------------------|
@@ -38,8 +40,7 @@
 |II|`docker pull $img`|      ~     |
 |III|`docker tag $img uptane/ota-lith:latest`|~|
 
-4. Run docker-compose
-
+4. Operate with docker-compose :
 
 > Start OTA-CE
 ```
@@ -49,33 +50,32 @@ docker compose -f ota-ce.yaml up
 ```
 docker compose -f ota-ce.yaml down
 ```
-> Clean everything
+> Remove & Clean OTA-CE
 ```
 docker compose -f ota-ce.yaml rm
 docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
-
 ```
+
 5. Test if the servers are up
 
 ```
 curl director.ota.ce/health/version
 ```
 
-6. Run the script **get-credentials.sh**
+6. Run the script **get-credentials.sh** :
 > Creates credentials.zip in `ota-ce-gen/` directory
  ```
  ./scripts/get-credentials.sh
  ```
 
-7. Run the script **gen-device.sh**
+7. Run the script **gen-device.sh** :
 > It provides a new device, by creating a new directory `ota-ce-gen/devices/:uuid` where **uuid** is the id of the new device.
 
  ```
  ./scripts/gen-device.sh
  ```
 8. Run **aktualizr** :
-- In the directory `ota-ce-gen/devices/:uuid`
-> To deploy updates to the devices make we connect aktualizr
+- Go in the directory `ota-ce-gen/devices/:uuid`, there we run the following command to connect aktualizr.
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
