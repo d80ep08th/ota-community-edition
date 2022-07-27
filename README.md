@@ -63,14 +63,20 @@ docker compose -f ota-ce.yaml down
 curl director.ota.ce/health/version
 ```
 
-6. You can now create device credentials and provision devices using the script **gen-device.sh**
+6. Get credentials using the script **get-credentials.sh**
+
+ ```
+ ./scripts/get-credentials.sh
+ ```
+
+7. You can now create device credentials and provision devices using the script **gen-device.sh**
 
  ```
  ./scripts/gen-device.sh
  ```
  > This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device. You can
 
-7. Run **aktualizr** in that directory using:
+8. Run **aktualizr** in that directory using:
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
