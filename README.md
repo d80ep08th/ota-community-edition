@@ -7,12 +7,9 @@
 - The source code for the servers is available on [Github](https://github.com/advancedtelematic) and is licensed under the MPL2.0
 
 - Docker container images of the latest build are available on [Docker Hub](https://hub.docker.com/u/advancedtelematic).
-> See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
----
-> If you don't have **kafka** or **mariadb** running and just want to try ota-ce
 
-> Run using **docker-compose**:
-### Running With Docker Compose
+- See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
+---
 1. Generate the required certificates using the script **gen-server-certs.sh**
 >This is required to provision the aktualizr
 ```
@@ -74,14 +71,14 @@ curl director.ota.ce/health/version
  ```
  ./scripts/gen-device.sh
  ```
- > This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device. You can
+ - This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device.
 
 8. Run **aktualizr** in that directory using:
 
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
-  > You can now deploy updates to the devices
+  - You can now deploy updates to the devices
 ---
 ## License
 
