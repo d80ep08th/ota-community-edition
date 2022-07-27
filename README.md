@@ -10,8 +10,9 @@
 
 - See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
-1. Generate the required certificates using the script **gen-server-certs.sh**
->This is required to provision the aktualizr
+1. Run the script **gen-server-certs.sh**
+- Generate the required certificates.
+- This is required to provision the aktualizr.
 ```
 ./scripts/gen-server-certs.sh
 ```
@@ -28,7 +29,7 @@
 0.0.0.0         ota.ce
 ```
 
-3. Build Docker Image or Pull from Docker
+3. Pull from docker (or build docker image)
 
 |     Options     |Pull from Docker            | Build Docker Image            |
 |----------------|-------------------------------|-----------------------------|
@@ -48,37 +49,37 @@ docker compose -f ota-ce.yaml up
 ```
 docker compose -f ota-ce.yaml down
 ```
-> Make sure everything is clean
+> Clean everything
 ```
 docker compose -f ota-ce.yaml rm
 docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
 
 ```
-5. Test
+5. Test if the servers are up
 
 ```
 curl director.ota.ce/health/version
 ```
 
-6. Get credentials using the script **get-credentials.sh**
-
+6. Run the script **get-credentials.sh**
+> Creates credentials.zip in `ota-ce-gen/` directory
  ```
  ./scripts/get-credentials.sh
  ```
 
-7. You can now create device credentials and provision devices using the script **gen-device.sh**
+7. Run the script **gen-device.sh**
+> It provides a new device, by creating a new directory `**ota-ce-gen/devices/:uuid**` where **uuid** is the id of the new device.
 
  ```
  ./scripts/gen-device.sh
  ```
- - This will create a new dir in **ota-ce-gen/devices/:uuid** where **uuid** is the id of the new device.
-
-8. Run **aktualizr** in that directory using:
-
+8. Run **aktualizr** :
+- In the directory `**ota-ce-gen/devices/:uuid**`
+> To deploy updates to the devices make we connect aktualizr
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
-  - You can now deploy updates to the devices
+
 ---
 ## License
 
