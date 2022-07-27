@@ -11,8 +11,8 @@
 - See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
 1. Run the script **gen-server-certs.sh**
-- Generate the required certificates.
-- This is required to provision the aktualizr.
+> Generates the required certificates.
+> This is required to provision the aktualizr.
 ```
 ./scripts/gen-server-certs.sh
 ```
@@ -68,13 +68,13 @@ curl director.ota.ce/health/version
  ```
 
 7. Run the script **gen-device.sh**
-> It provides a new device, by creating a new directory `**ota-ce-gen/devices/:uuid**` where **uuid** is the id of the new device.
+> It provides a new device, by creating a new directory `ota-ce-gen/devices/:uuid` where **uuid** is the id of the new device.
 
  ```
  ./scripts/gen-device.sh
  ```
 8. Run **aktualizr** :
-- In the directory `**ota-ce-gen/devices/:uuid**`
+- In the directory `ota-ce-gen/devices/:uuid`
 > To deploy updates to the devices make we connect aktualizr
 ```
 aktualizr --run-mode=once --config=config.toml
