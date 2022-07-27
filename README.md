@@ -2,14 +2,11 @@
 
 - The OTA Community Edition is open-source server software to allow over-the-air (OTA) updates of compatible clients
 
-- It is comprised of a number of services which together make up the OTA system. They are :
-> reposerver, keyserver, director, deviceregistry, campaigner and treehub
+- OTA-CE comprises of a number of services `reposerver, keyserver, director, deviceregistry, campaigner and treehub` which together make up the OTA system.
 
 - The source code for the servers is available on [Github](https://github.com/advancedtelematic) and is licensed under the MPL2.0
 
-- Docker container images of the latest build are available on Docker Hub
-> [Advanced Telematic](https://hub.docker.com/u/advancedtelematic) &
-> [ota-lith](https://hub.docker.com/r/uptane/ota-lith)
+- Docker container images of the latest build are available on Docker Hub : [Advanced Telematic](https://hub.docker.com/u/advancedtelematic) & [ota-lith](https://hub.docker.com/r/uptane/ota-lith)
 - [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
 ## Installing OTA-CE
@@ -78,6 +75,7 @@ curl director.ota.ce/health/version
  ```
 8. Run **aktualizr** :
 - Go in the directory `ota-ce-gen/devices/:uuid`, there we run the following command to connect aktualizr.
+> The aktualizr client is intended to be installed on devices that wish to receive OTA updates from an Uptane-compatible OTA server,
 ```
 aktualizr --run-mode=once --config=config.toml
 ```   
