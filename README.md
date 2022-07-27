@@ -2,17 +2,19 @@
 
 - The OTA Community Edition is open-source server software to allow over-the-air (OTA) updates of compatible clients
 
-- It is comprised of a number of services which together make up the OTA system.
+- It is comprised of a number of services which together make up the OTA system. They are :
+> reposerver, keyserver, director, deviceregistry, campaigner and treehub
 
 - The source code for the servers is available on [Github](https://github.com/advancedtelematic) and is licensed under the MPL2.0
 
-- Docker container images of the latest build are available on [Docker Hub](https://hub.docker.com/u/advancedtelematic).
-
-- See the [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
+- Docker container images of the latest build are available on Docker Hub
+> [Advanced Telematic](https://hub.docker.com/u/advancedtelematic) &
+> [ota-lith](https://hub.docker.com/r/uptane/ota-lith)
+- [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
 ---
 ## Installing OTA-CE
 
-1. Run the script **gen-server-certs.sh**
+1. Run the script `gen-server-certs.sh` :
 > Generates the required certificates.
 > This is required to provision the aktualizr.
 ```
@@ -42,15 +44,15 @@
 
 4. Operate with docker-compose :
 
-> Start OTA-CE
+> Start
 ```
 docker compose -f ota-ce.yaml up
 ```
-> Stop OTA-CE
+> Stop
 ```
 docker compose -f ota-ce.yaml down
 ```
-> Remove & Clean OTA-CE
+> Remove & Clean
 ```
 docker compose -f ota-ce.yaml rm
 docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
@@ -62,13 +64,13 @@ docker volume ls | grep ota-lith | awk '{print $2}'| xargs -n1 docker volume rm
 curl director.ota.ce/health/version
 ```
 
-6. Run the script **get-credentials.sh** :
+6. Run the script `get-credentials.sh` :
 > Creates credentials.zip in `ota-ce-gen/` directory
  ```
  ./scripts/get-credentials.sh
  ```
 
-7. Run the script **gen-device.sh** :
+7. Run the script `gen-device.sh` :
 > It provides a new device, by creating a new directory `ota-ce-gen/devices/:uuid` where **uuid** is the id of the new device.
 
  ```
