@@ -2,13 +2,24 @@
 
 - The OTA Community Edition is open-source server software to allow over-the-air (OTA) updates of compatible clients
 
-- OTA-CE comprises of a number of services `reposerver, keyserver, director, deviceregistry, campaigner and treehub` which together make up the OTA system.
+- OTA-CE comprises of a number of services which together make up the OTA system.
+>  `reposerver, keyserver, director, deviceregistry, campaigner and treehub`
 
 - The source code for the servers is available on [Github](https://github.com/advancedtelematic) and is licensed under the MPL2.0
 
-- Docker container images of the latest build are available on Docker Hub : [Advanced Telematic](https://hub.docker.com/u/advancedtelematic) & [ota-lith](https://hub.docker.com/r/uptane/ota-lith)
-- [Aktualizr](https://github.com/advancedtelematic/aktualizr) open-source example client
----
+- [Advanced Telematic](https://hub.docker.com/u/advancedtelematic) & [ota-lith](https://hub.docker.com/r/uptane/ota-lith): Docker container images of the latest build are available on Docker Hub
+
+## Prerequisite
+> On a  linux/debian setup install the following:
+
+- Curl
+```
+sudo apt-get update
+sudo apt-get install curl
+```
+- [Docker](https://docs.docker.com/engine/install/) (with [docker compose](https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command) version 2.6.x)
+- [Aktualizr](https://github.com/advancedtelematic/aktualizr)
+
 ## Installing OTA-CE
 1. Add the following host names to `/etc/hosts` :
 > open the file /etc/hosts using any editor of your choice with root access
